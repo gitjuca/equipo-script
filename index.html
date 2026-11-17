@@ -5,6 +5,161 @@
 <title>Web del equipo</title>
 </head>
 <body>
-<h1>Web del equipo</h1>
+<!-- Sección de Contacto -->
+<section id="contacto" aria-labelledby="titulo-contacto">
+  <h2 id="titulo-contacto">Contáctanos</h2>
+  <p>¿Tienes alguna consulta, propuesta o necesitas soporte? Completa el formulario o utiliza nuestros canales directos y te responderemos a la brevedad.</p>
+
+  <!-- Formulario de contacto -->
+  <div>
+    <h3>Envíanos un mensaje</h3>
+    <form id="formulario-contacto" action="#" method="POST">
+      <div>
+        <label for="nombre">Nombre completo *</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej. Ana García" required minlength="3">
+        <small id="error-nombre" aria-live="polite"></small>
+      </div>
+
+      <div>
+        <label for="correo">Correo electrónico *</label>
+        <input type="email" id="correo" name="correo" placeholder="ana@ejemplo.com" required>
+        <small id="error-correo" aria-live="polite"></small>
+      </div>
+
+      <div>
+        <label for="telefono">Teléfono (opcional)</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000">
+      </div>
+
+      <div>
+        <label for="asunto">Asunto *</label>
+        <select id="asunto" name="asunto" required>
+          <option value="" disabled selected>Selecciona un motivo</option>
+          <option value="consulta">Consulta general</option>
+          <option value="presupuesto">Solicitud de presupuesto</option>
+          <option value="soporte">Soporte técnico</option>
+          <option value="colaboracion">Colaboración comercial</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="mensaje">Mensaje *</label>
+        <textarea id="mensaje" name="mensaje" rows="5" maxlength="500" placeholder="Escribe aquí los detalles de tu consulta..." required></textarea>
+        <div>
+          <small id="error-mensaje" aria-live="polite"></small>
+          <span id="contador-caracteres">0 / 500</span>
+        </div>
+      </div>
+
+      <div>
+        <input type="checkbox" id="privacidad" name="privacidad" required>
+        <label for="privacidad">
+          He leído y acepto la <button type="button" id="abrir-modal-privacidad">Política de Privacidad</button> *
+        </label>
+      </div>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+
+    <!-- Tarjeta de confirmación tras el envío -->
+    <article id="tarjeta-confirmacion" hidden aria-live="polite">
+      <h4>¡Mensaje enviado con éxito!</h4>
+      <p>Hemos recibido tu solicitud correctamente. Nuestro equipo se pondrá en contacto contigo en menos de 24 horas hábiles.</p>
+      <p><strong>Número de referencia:</strong> <span id="numero-referencia">#REF-2026-8492</span></p>
+      <button type="button" id="nuevo-mensaje">Enviar otro mensaje</button>
+    </article>
+  </div>
+
+  <!-- Información de contacto directa -->
+  <aside aria-label="Información de contacto directa">
+    <h3>Información directa</h3>
+
+    <ul>
+      <li>
+        <h4>Correo electrónico</h4>
+        <p id="dato-email">contacto@miempresa.com</p>
+        <button type="button" data-copiar="contacto@miempresa.com">Copiar correo</button>
+      </li>
+      <li>
+        <h4>Teléfono</h4>
+        <p id="dato-telefono">+34 958 000 000</p>
+        <button type="button" data-copiar="+34 958 000 000">Copiar teléfono</button>
+      </li>
+      <li>
+        <h4>Dirección</h4>
+        <p id="dato-direccion">Calle Principal 123, 18001 Granada, España</p>
+        <button type="button" data-copiar="Calle Principal 123, 18001 Granada, España">Copiar dirección</button>
+      </li>
+    </ul>
+
+    <div>
+      <h4>Horario de oficina</h4>
+      <p id="estado-oficina">Estado: Abierto ahora</p>
+      <ul>
+        <li>Lunes a Viernes: 09:00 – 18:00</li>
+        <li>Sábados: 10:00 – 14:00</li>
+        <li>Domingos y festivos: Cerrado</li>
+      </ul>
+    </div>
+
+    <figure>
+      <svg width="300" height="180" viewBox="0 0 300 180" role="img" aria-label="Mapa esquemático de ubicación de la oficina">
+        <rect width="300" height="180" fill="#e2e8f0" />
+        <line x1="0" y1="60" x2="300" y2="60" stroke="#ffffff" stroke-width="8" />
+        <line x1="120" y1="0" x2="120" y2="180" stroke="#ffffff" stroke-width="8" />
+        <circle cx="120" cy="60" r="10" fill="#1d4ed8" />
+        <text x="135" y="65" font-size="12" fill="#0f172a">Nuestra Oficina</text>
+      </svg>
+      <figcaption>Ubicación de nuestra sede central.</figcaption>
+    </figure>
+
+    <div>
+      <h4>Síguenos</h4>
+      <ul>
+        <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+        <li><a href="#" aria-label="GitHub">GitHub</a></li>
+        <li><a href="#" aria-label="X (Twitter)">X</a></li>
+        <li><a href="#" aria-label="Instagram">Instagram</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Preguntas Frecuentes -->
+  <div aria-labelledby="faq-titulo">
+    <h3 id="faq-titulo">Preguntas Frecuentes</h3>
+
+    <details>
+      <summary>¿Cuál es el tiempo estimado de respuesta?</summary>
+      <p>Respondemos a todas las consultas recibidas a través del formulario en un plazo máximo de 24 horas laborables.</p>
+    </details>
+
+    <details>
+      <summary>¿Ofrecen atención presencial en sus oficinas?</summary>
+      <p>Sí, atendemos de forma presencial dentro de nuestro horario comercial. Recomendamos solicitar cita previa para garantizar disponibilidad.</p>
+    </details>
+
+    <details>
+      <summary>¿Cómo puedo solicitar un presupuesto personalizado?</summary>
+      <p>Selecciona la opción «Solicitud de presupuesto» en el desplegable de asunto del formulario e indícanos los requisitos de tu proyecto.</p>
+    </details>
+
+    <details>
+      <summary>¿Qué ocurre con mis datos personales tras enviar el formulario?</summary>
+      <p>Tus datos se utilizan exclusivamente para gestionar y responder tu consulta conforme a nuestra Política de Privacidad y el RGPD.</p>
+    </details>
+  </div>
+
+  <!-- Modal de Política de Privacidad y notificación -->
+  <dialog id="modal-privacidad" aria-labelledby="modal-titulo">
+    <h3 id="modal-titulo">Política de Privacidad</h3>
+    <p>De conformidad con la normativa vigente de protección de datos, te informamos que los datos personales facilitados serán tratados con la única finalidad de atender tu solicitud de contacto.</p>
+    <p>No se cederán datos a terceros salvo obligación legal. Puedes ejercer tus derechos de acceso, rectificación y supresión escribiendo a nuestro correo de contacto.</p>
+    <button type="button" id="cerrar-modal-privacidad">Cerrar</button>
+  </dialog>
+
+  <div id="toast-notificacion" role="status" aria-live="polite" hidden>
+    Texto copiado al portapapeles.
+  </div>
+</section>
 </body>
 </html>
